@@ -40,9 +40,42 @@
       <ons-page>
         <ons-toolbar>
           <div class="left">
-            <ons-back-button>Back</ons-back-button>
+            <ons-back-button>ばっく</ons-back-button>
           </div>
-          <div class="center">Navigation</div>
+          <div class="center">なびげーしょん</div>
+        </ons-toolbar>
+
+        <section style="padding: 10px">
+          <ons-button ng-click="navi.pushPage('page1.html')">
+            Push Page
+          </ons-button>
+
+          <p>
+            You have pushed {{ app.pushes }} times and popped {{ app.pops }} times.
+          </p>
+        </section>
+      </ons-page>
+    </ons-template>
+
+
+
+    <ons-page>
+        <ons-navigator
+          var="navi"
+          page="page1.html"
+          ng-controller="AppController as app"
+          ons-postpush="app.pushes = app.pushes + 1"
+          ons-postpop="app.pops = app.pops + 1">
+        </ons-navigator>
+    </ons-page>
+
+    <ons-template id="page1.html">
+      <ons-page>
+        <ons-toolbar>
+          <div class="left">
+            <ons-back-button>ばっく</ons-back-button>
+          </div>
+          <div class="center">ぺーじ１</div>
         </ons-toolbar>
 
         <section style="padding: 10px">
